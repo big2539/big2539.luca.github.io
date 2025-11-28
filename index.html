@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>แชร์ให้เพื่อนบน LINE</title>
+
+<script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Prompt', sans-serif;
+        background: #1a0f0b; /* เข้ากับโทนรูปภาพ */
+        color: #ffffff;
+        text-align: center;
+    }
+
+    .container {
+        padding: 20px;
+        max-width: 500px;
+        margin: auto;
+    }
+
+    img.main-img {
+        width: 100%;
+        border-radius: 14px;
+        margin-bottom: 18px;
+    }
+
+    .desc {
+        font-size: 1.1rem;
+        margin-bottom: 20px;
+        line-height: 1.5em;
+    }
+
+    /* ปุ่มเรืองแสง */
+    .share-btn {
+        background: linear-gradient(45deg, #ff9d00, #ff3c00);
+        padding: 16px 30px;
+        color: white;
+        text-decoration: none;
+        font-size: 1.3rem;
+        border-radius: 50px;
+        display: inline-block;
+        cursor: pointer;
+        border: 0;
+        box-shadow: 0 0 18px #ff5e00;
+        animation: glow 1.8s infinite alternate;
+    }
+
+    @keyframes glow {
+        from { box-shadow: 0 0 8px #ff5e00; }
+        to { box-shadow: 0 0 22px #ffb300; }
+    }
+
+    .footer-text {
+        margin-top: 25px;
+        opacity: 0.85;
+        font-size: 1rem;
+    }
+</style>
+</head>
+
+<body>
+<div class="container">
+
+    <!-- รูป -->
+    <img src="https://img5.pic.in.th/file/secure-sv1/562acac4-62b9-405b-b569-71cf770ae902-1.jpg" class="main-img">
+
+    <!-- ข้อความบนปุ่ม -->
+    <div class="desc">
+        🎉 กดแชร์ให้เพื่อนเพื่อรับสิทธิ์ได้เลย! 🎉<br>
+        แชร์แล้วเข้ารับเครดิตฟรีได้ทันที
+    </div>
+
+    <!-- ปุ่ม -->
+    <button class="share-btn" onclick="sendFlex()">
+        ✨ กดแชร์ให้เพื่อน/กลุ่ม ✨
+    </button>
+
+    <!-- ข้อความใต้ปุ่ม -->
+    <div class="footer-text">
+        ระบบจะเปิด LINE เพื่อให้คุณเลือกแชร์ให้เพื่อนหรือกลุ่ม
+    </div>
+
+</div>
+
+<script>
+    // ----- LIFF INIT -----
+    document.addEventListener("DOMContentLoaded", async () => {
+        await liff.init({ liffId: "2008464608-2Bw3ygND" });
+    });
+
+    // ----- ส่ง Flex Message -----
+    function sendFlex() {
+        const flexMessage = {
+            type: "flex",
+            altText: "รับเครดิตฟรีฟรี 200.-",
+            contents: {
+                type: "bubble",
+                size: "mega",
+                body: {
+                    type: "box",
+                    layout: "vertical",
+                    spacing: "md",
+                    backgroundColor: "#1d120d",
+                    paddingAll: "0px",
+                    contents: [
+                        {
+                            type: "image",
+                            url: "https://img5.pic.in.th/file/secure-sv1/562acac4-62b9-405b-b569-71cf770ae902-1.jpg",
+                            size: "full",
+                            aspectMode: "cover",
+                            aspectRatio: "1:1"
+                        },
+                        {
+                            type: "box",
+                            layout: "vertical",
+                            paddingAll: "16px",
+                            backgroundColor: "#1d120d",
+                            contents: [
+                                {
+                                    type: "text",
+                                    text: "กดรับสิทธิ์ได้เลย!",
+                                    weight: "bold",
+                                    size: "lg",
+                                    color: "#ffffff",
+                                    align: "center",
+                                    margin: "md"
+                                },
+                                {
+                                    type: "button",
+                                    style: "primary",
+                                    color: "#ff6a00",
+                                    action: {
+                                        type: "uri",
+                                        label: "🧧เครดิตฟรีฟรี200.-🧧",
+                                        uri: "https://lin.ee/yKzlJ8j"
+                                    }
+                                },
+                                {
+                                    type: "button",
+                                    style: "primary",
+                                    color: "#ff3c00",
+                                    margin: "md",
+                                    action: {
+                                        type: "uri",
+                                        label: "🎰รับโปรโมชั่น🎰",
+                                        uri: "https://lnwpg789.meauto.cloud/lnwpg789/betflix/login"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+        };
+
+        liff.shareTargetPicker([flexMessage])
+            .then(() => console.log("แชร์สำเร็จ"))
+            .catch(err => console.error("เกิดข้อผิดพลาด:", err));
+    }
+</script>
+
+</body>
+</html>
