@@ -95,74 +95,72 @@
 
     // ----- ส่ง Flex Message -----
     function sendFlex() {
-        const flexMessage = {
-            type: "flex",
-            altText: "รับเครดิตฟรีฟรี 200.-",
-            contents: {
-                type: "bubble",
-                size: "mega",
-                body: {
-                    type: "box",
-                    layout: "vertical",
-                    spacing: "md",
-                    backgroundColor: "#1d120d",
-                    paddingAll: "0px",
-                    contents: [
-                        {
-                            type: "image",
-                            url: "https://img5.pic.in.th/file/secure-sv1/562acac4-62b9-405b-b569-71cf770ae902-1.jpg",
-                            size: "full",
-                            aspectMode: "cover",
-                            aspectRatio: "1:1"
-                        },
-                        {
-                            type: "box",
-                            layout: "vertical",
-                            paddingAll: "16px",
-                            backgroundColor: "#1d120d",
-                            contents: [
-                                {
-                                    type: "text",
-                                    text: "กดรับสิทธิ์ได้เลย!",
-                                    weight: "bold",
-                                    size: "lg",
-                                    color: "#ffffff",
-                                    align: "center",
-                                    margin: "md"
-                                },
-                                {
-                                    type: "button",
-                                    style: "primary",
-                                    color: "#ff6a00",
-                                    action: {
-                                        type: "uri",
-                                        label: "🧧เครดิตฟรีฟรี200.-🧧",
-                                        uri: "https://lin.ee/yKzlJ8j"
-                                    }
-                                },
-                                {
-                                    type: "button",
-                                    style: "primary",
-                                    color: "#ff3c00",
-                                    margin: "md",
-                                    action: {
-                                        type: "uri",
-                                        label: "🎰รับโปรโมชั่น🎰",
-                                        uri: "https://lnwpg789.meauto.cloud/lnwpg789/betflix/login"
-                                    }
-                                }
-                            ]
-                        }
-                    ]
+        const flexMsg = {
+    type: "flex",
+    altText: "กดรับสิทธิ์เลย!",
+    contents: {
+        type: "bubble",
+        size: "mega",
+
+        hero: {
+            type: "image",
+            url: "https://img5.pic.in.th/file/secure-sv1/1d02d32c-f2d1-4f2a-8460-e76837ed8a9f.jpg",
+            size: "full",
+            aspectRatio: "1:1.6",
+            aspectMode: "cover"
+        },
+
+        body: {
+            type: "box",
+            layout: "vertical",
+            backgroundColor: "#111111",
+            spacing: "md",
+            paddingAll: "16px",
+            contents: [
+                {
+                    type: "text",
+                    text: "💸เครดิตฟรี 100 บาท💸",
+                    color: "#FFD700",
+                    weight: "bold",
+                    size: "md",
+                    align: "center"
+                },
+                {
+                    type: "button",
+                    action: {
+                        type: "uri",
+                        label: "💸 เครดิตฟรี100฿ 💸",
+                        uri: "https://lin.ee/rvqj1DHt"
+                    },
+                    style: "primary",
+                    color: "#FFD700",
+                    margin: "md"
+                },
+                {
+                    type: "button",
+                    action: {
+                        type: "uri",
+                        label: "🌟 สมัคร/ฝาก/ถอน",
+                        uri: "https://usbetrich.com/"
+                    },
+                    style: "primary",
+                    color: "#444444",
+                    margin: "md"
+                },
+                {
+                    type: "text",
+                    text: "สมัคร/ฝาก/ถอน ออโต้ 24 ชม.",
+                    color: "#ffffffcc",
+                    align: "center",
+                    wrap: true,
+                    margin: "md"
                 }
-            }
-        };
+            ]
+        },
 
-        liff.shareTargetPicker([flexMessage])
-            .then(() => console.log("แชร์สำเร็จ"))
-            .catch(err => console.error("เกิดข้อผิดพลาด:", err));
+        styles: {
+            hero: { backgroundColor: "#000000" },
+            body: { backgroundColor: "#111111" }
+        }
     }
-</script>
-
-</body>
-</html>
+};
